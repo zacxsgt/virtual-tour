@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #05050A;
+    min-height: 100vh;
+    color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Neon Light Animation */
+.neon-light {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, 
+        rgba(129, 140, 248, 0.3) 0%, 
+        rgba(59, 130, 246, 0.2) 25%,
+        rgba(96, 165, 250, 0.3) 50%,
+        rgba(129, 140, 248, 0.2) 75%,
+        transparent 100%);
+    animation: neonMove 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes neonMove {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(20%, 20%) rotate(90deg);
+    }
+    50% {
+        transform: translate(0, 40%) rotate(180deg);
+    }
+    75% {
+        transform: translate(-20%, 20%) rotate(270deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* RGB Animated Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(129, 140, 248, 0.1), 
+        rgba(59, 130, 246, 0.1), 
+        rgba(96, 165, 250, 0.1),
+        rgba(15, 16, 32, 0.3));
+    background-size: 400% 400%;
+    animation: rgbGradient 15s ease infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes rgbGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+    background: rgba(15, 16, 32, 0.95);
+    padding: 25px 0;
+    box-shadow: 0 2px 30px rgba(129, 140, 248, 0.4);
+    border-bottom: 2px solid rgba(129, 140, 248, 0.3);
+    position: relative;
+    z-index: 10;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    background: linear-gradient(90deg, #818CF8, #3B82F6, #60A5FA);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    animation: rgbText 3s ease infinite;
+    font-weight: 700;
+    filter: drop-shadow(0 0 25px rgba(129, 140, 248, 0.6));
+}
+
+@keyframes rgbText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.subtitle {
+    text-align: center;
+    color: #60A5FA;
+    font-size: 1.1em;
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+}
+
+.tour-container {
+    margin: 40px auto;
+    max-width: 1400px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 5;
+}
+
+.tour-wrapper {
+    background: rgba(15, 16, 32, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        0 10px 60px rgba(0, 0, 0, 0.7),
+        0 0 30px rgba(129, 140, 248, 0.4),
+        0 0 60px rgba(59, 130, 246, 0.3);
+    border: 2px solid rgba(129, 140, 248, 0.3);
+    position: relative;
+}
+
+.tour-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #818CF8, #3B82F6, #60A5FA, #818CF8);
+    background-size: 300% 300%;
+    border-radius: 20px;
+    z-index: -1;
+    animation: borderGlow 4s ease infinite;
+    opacity: 0.5;
+}
+
+@keyframes borderGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.tour-frame {
+    width: 100%;
+    height: 85vh;
+    border: none;
+    display: block;
+    background: #05050A;
+}
+
+footer {
+    text-align: center;
+    color: #60A5FA;
+    padding: 30px 20px;
+    margin-top: 50px;
+    position: relative;
+    z-index: 5;
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .tour-frame {
+        height: 70vh;
+    }
+
+    header {
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    .subtitle {
+        font-size: 0.9em;
+    }
+
+    .tour-frame {
+        height: 60vh;
+    }
+
+    .tour-wrapper {
+        border-radius: 15px;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 600px) and (orientation: landscape) {
+    .tour-frame {
+        height: 75vh;
+    }
+
+    header {
+        padding: 15px 0;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 5px;
+    }
+}
+
+/* Large Screens */
+@media (min-width: 1920px) {
+    .tour-frame {
+        height: 90vh;
+    }
+
+    h1 {
+        font-size: 3.2em;
+    }
+
+    .subtitle {
+        font-size: 1.3em;
+    }
+}
