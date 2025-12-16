@@ -6,11 +6,143 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #05050A;
+    background: #0a0a0a;
     min-height: 100vh;
     color: #fff;
     position: relative;
     overflow-x: hidden;
+}
+
+/* Animated Bubbles Background */
+.bubbles-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: rise 15s infinite ease-in;
+}
+
+.bubble:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    left: 10%;
+    background: radial-gradient(circle, rgba(210, 255, 114, 0.6), rgba(115, 236, 139, 0.3));
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+
+.bubble:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    left: 25%;
+    background: radial-gradient(circle, rgba(115, 236, 139, 0.6), rgba(84, 195, 146, 0.3));
+    animation-delay: 2s;
+    animation-duration: 14s;
+}
+
+.bubble:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    left: 40%;
+    background: radial-gradient(circle, rgba(84, 195, 146, 0.6), rgba(21, 179, 146, 0.3));
+    animation-delay: 4s;
+    animation-duration: 16s;
+}
+
+.bubble:nth-child(4) {
+    width: 70px;
+    height: 70px;
+    left: 55%;
+    background: radial-gradient(circle, rgba(21, 179, 146, 0.6), rgba(115, 236, 139, 0.3));
+    animation-delay: 1s;
+    animation-duration: 13s;
+}
+
+.bubble:nth-child(5) {
+    width: 90px;
+    height: 90px;
+    left: 70%;
+    background: radial-gradient(circle, rgba(210, 255, 114, 0.6), rgba(84, 195, 146, 0.3));
+    animation-delay: 3s;
+    animation-duration: 15s;
+}
+
+.bubble:nth-child(6) {
+    width: 50px;
+    height: 50px;
+    left: 15%;
+    background: radial-gradient(circle, rgba(115, 236, 139, 0.6), rgba(21, 179, 146, 0.3));
+    animation-delay: 5s;
+    animation-duration: 11s;
+}
+
+.bubble:nth-child(7) {
+    width: 110px;
+    height: 110px;
+    left: 85%;
+    background: radial-gradient(circle, rgba(84, 195, 146, 0.6), rgba(210, 255, 114, 0.3));
+    animation-delay: 2.5s;
+    animation-duration: 17s;
+}
+
+.bubble:nth-child(8) {
+    width: 75px;
+    height: 75px;
+    left: 33%;
+    background: radial-gradient(circle, rgba(21, 179, 146, 0.6), rgba(115, 236, 139, 0.3));
+    animation-delay: 4.5s;
+    animation-duration: 12.5s;
+}
+
+.bubble:nth-child(9) {
+    width: 65px;
+    height: 65px;
+    left: 62%;
+    background: radial-gradient(circle, rgba(210, 255, 114, 0.6), rgba(21, 179, 146, 0.3));
+    animation-delay: 1.5s;
+    animation-duration: 14.5s;
+}
+
+.bubble:nth-child(10) {
+    width: 85px;
+    height: 85px;
+    left: 78%;
+    background: radial-gradient(circle, rgba(115, 236, 139, 0.6), rgba(84, 195, 146, 0.3));
+    animation-delay: 3.5s;
+    animation-duration: 13.5s;
+}
+
+@keyframes rise {
+    0% {
+        bottom: -100px;
+        transform: translateX(0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateX(50px) scale(1.2);
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        bottom: 110%;
+        transform: translateX(-50px) scale(0.8);
+        opacity: 0;
+    }
 }
 
 /* Neon Light Animation */
@@ -21,14 +153,14 @@ body {
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, 
-        rgba(129, 140, 248, 0.3) 0%, 
-        rgba(59, 130, 246, 0.2) 25%,
-        rgba(96, 165, 250, 0.3) 50%,
-        rgba(129, 140, 248, 0.2) 75%,
+        rgba(210, 255, 114, 0.15) 0%, 
+        rgba(115, 236, 139, 0.1) 25%,
+        rgba(84, 195, 146, 0.15) 50%,
+        rgba(21, 179, 146, 0.1) 75%,
         transparent 100%);
     animation: neonMove 20s linear infinite;
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
 }
 
 @keyframes neonMove {
@@ -58,10 +190,10 @@ body::before {
     width: 100%;
     height: 100%;
     background: linear-gradient(45deg, 
-        rgba(129, 140, 248, 0.1), 
-        rgba(59, 130, 246, 0.1), 
-        rgba(96, 165, 250, 0.1),
-        rgba(15, 16, 32, 0.3));
+        rgba(210, 255, 114, 0.08), 
+        rgba(115, 236, 139, 0.08), 
+        rgba(84, 195, 146, 0.08),
+        rgba(21, 179, 146, 0.08));
     background-size: 400% 400%;
     animation: rgbGradient 15s ease infinite;
     z-index: 1;
@@ -75,10 +207,10 @@ body::before {
 }
 
 header {
-    background: rgba(15, 16, 32, 0.95);
+    background: rgba(10, 10, 10, 0.95);
     padding: 25px 0;
-    box-shadow: 0 2px 30px rgba(129, 140, 248, 0.4);
-    border-bottom: 2px solid rgba(129, 140, 248, 0.3);
+    box-shadow: 0 2px 30px rgba(115, 236, 139, 0.4);
+    border-bottom: 2px solid rgba(115, 236, 139, 0.3);
     position: relative;
     z-index: 10;
 }
@@ -91,7 +223,7 @@ header {
 
 h1 {
     text-align: center;
-    background: linear-gradient(90deg, #818CF8, #3B82F6, #60A5FA);
+    background: linear-gradient(90deg, #D2FF72, #73EC8B, #54C392, #15B392);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -100,7 +232,7 @@ h1 {
     margin-bottom: 10px;
     animation: rgbText 3s ease infinite;
     font-weight: 700;
-    filter: drop-shadow(0 0 25px rgba(129, 140, 248, 0.6));
+    filter: drop-shadow(0 0 25px rgba(115, 236, 139, 0.6));
 }
 
 @keyframes rgbText {
@@ -111,9 +243,9 @@ h1 {
 
 .subtitle {
     text-align: center;
-    color: #60A5FA;
+    color: #73EC8B;
     font-size: 1.1em;
-    text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+    text-shadow: 0 0 10px rgba(115, 236, 139, 0.5);
 }
 
 .tour-container {
@@ -125,30 +257,72 @@ h1 {
 }
 
 .tour-wrapper {
-    background: rgba(15, 16, 32, 0.9);
+    background: rgba(10, 10, 10, 0.9);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 
         0 10px 60px rgba(0, 0, 0, 0.7),
-        0 0 30px rgba(129, 140, 248, 0.4),
-        0 0 60px rgba(59, 130, 246, 0.3);
-    border: 2px solid rgba(129, 140, 248, 0.3);
+        0 0 40px rgba(115, 236, 139, 0.8),
+        0 0 80px rgba(84, 195, 146, 0.6),
+        0 0 120px rgba(21, 179, 146, 0.4),
+        inset 0 0 60px rgba(115, 236, 139, 0.1);
+    border: 3px solid rgba(115, 236, 139, 0.6);
     position: relative;
+    animation: frameGlow 3s ease-in-out infinite;
+}
+
+@keyframes frameGlow {
+    0%, 100% {
+        box-shadow: 
+            0 10px 60px rgba(0, 0, 0, 0.7),
+            0 0 40px rgba(115, 236, 139, 0.8),
+            0 0 80px rgba(84, 195, 146, 0.6),
+            0 0 120px rgba(21, 179, 146, 0.4),
+            inset 0 0 60px rgba(115, 236, 139, 0.1);
+    }
+    50% {
+        box-shadow: 
+            0 10px 60px rgba(0, 0, 0, 0.7),
+            0 0 60px rgba(210, 255, 114, 0.9),
+            0 0 100px rgba(115, 236, 139, 0.7),
+            0 0 140px rgba(84, 195, 146, 0.5),
+            inset 0 0 80px rgba(115, 236, 139, 0.2);
+    }
 }
 
 .tour-wrapper::before {
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #818CF8, #3B82F6, #60A5FA, #818CF8);
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #D2FF72, #73EC8B, #54C392, #15B392, #D2FF72);
     background-size: 300% 300%;
     border-radius: 20px;
     z-index: -1;
     animation: borderGlow 4s ease infinite;
-    opacity: 0.5;
+    opacity: 0.7;
+    filter: blur(8px);
+}
+
+.tour-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    background: linear-gradient(90deg, 
+        rgba(210, 255, 114, 0.3), 
+        rgba(115, 236, 139, 0.3), 
+        rgba(84, 195, 146, 0.3), 
+        rgba(21, 179, 146, 0.3));
+    background-size: 400% 400%;
+    border-radius: 22px;
+    z-index: -2;
+    animation: outerGlow 6s ease infinite;
+    filter: blur(15px);
 }
 
 @keyframes borderGlow {
@@ -157,22 +331,33 @@ h1 {
     100% { background-position: 0% 50%; }
 }
 
+@keyframes outerGlow {
+    0%, 100% {
+        opacity: 0.6;
+        background-position: 0% 50%;
+    }
+    50% {
+        opacity: 1;
+        background-position: 100% 50%;
+    }
+}
+
 .tour-frame {
     width: 100%;
     height: 85vh;
     border: none;
     display: block;
-    background: #05050A;
+    background: #0a0a0a;
 }
 
 footer {
     text-align: center;
-    color: #60A5FA;
+    color: #73EC8B;
     padding: 30px 20px;
     margin-top: 50px;
     position: relative;
     z-index: 5;
-    text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+    text-shadow: 0 0 10px rgba(115, 236, 139, 0.3);
 }
 
 /* Mobile Responsive */
@@ -191,6 +376,10 @@ footer {
 
     header {
         padding: 20px 0;
+    }
+
+    .bubble {
+        animation-duration: 10s !important;
     }
 }
 
